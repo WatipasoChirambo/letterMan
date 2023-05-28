@@ -1,5 +1,11 @@
 <script>
 	import { Avatar } from '@skeletonlabs/skeleton';
+	export let title = '';
+	export let author = '';
+	export let description = '';
+	export let id = '';
+	export let tags = [];
+	export let image = ''
 </script>
 
 <div
@@ -13,12 +19,12 @@
 					width="w-12"
 					rounded="rounded-full"
 				/>
-				<span class="text-sm font-semibold">Rokka Man Roar</span><span class="text-sm font-light"
+				<span class="text-sm font-semibold">{author}</span><span class="text-sm font-light"
 					>May 4, 2023</span
 				>
 			</div>
-			<a class="grid gap-2 cursor-pointer" href="/#">
-				<h3 class="h3 font-bold">Skeleton H4</h3>
+			<a class="grid gap-2 cursor-pointer" href={id}>
+				<h3 class="h3 font-bold">{title}</h3>
 				<div class="lg:hidden md:hidden">
 					<img
 						src="https://source.unsplash.com/vjUokUWbFOs/400x175"
@@ -27,8 +33,7 @@
 					/>
 				</div>
 				<p class="hidden md:block lg:block font-light">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque voluptatum molestiae
-					blanditiis! Facere, nostrum modi.
+					{description}
 				</p>
 			</a>
 		</div>

@@ -6,6 +6,7 @@
 - Keeping relevant tools.
 
 ## CURRENT FEATURES
+- Desktop UI
 - Auth
 - Create Publication
 

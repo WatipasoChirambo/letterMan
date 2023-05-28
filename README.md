@@ -16,14 +16,13 @@
 
 clone Repo
 Install Dependencies by running:
-run pnpm i
+run npm i
 
-Start the Deve Server:
-pnpm dev
+Start the Dev Server:
 npm run dev
 
 # or start the server and open the app in a new browser tab
-pnpm dev -- --open
+npm run dev -- --open
 ```
 
 ## Building
@@ -31,7 +30,7 @@ pnpm dev -- --open
 To create a production version of your app:
 
 ```bash
-pnpm build
+npm run build
 ```
 
 You can preview the production build with `npm run preview`.

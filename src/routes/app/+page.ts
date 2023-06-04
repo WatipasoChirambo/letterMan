@@ -16,8 +16,7 @@ export const load: PageLoad = async ({ parent }) => {
   )
   )`)
   .order('created_at', { ascending: false })
-
-console.log(posts)
+  
   return {
     user: session.user,
     posts

@@ -28,7 +28,7 @@
 					>{month +" "+ day}</span
 				>
 			</div>
-			<a class="grid gap-2 cursor-pointer" href={id}>
+			<a class="grid gap-2 cursor-pointer" href={`app/${id}`}>
 				<h3 class="h3 font-bold">{title}</h3>
 				<div class="lg:hidden md:hidden">
 					<img

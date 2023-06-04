@@ -46,16 +46,9 @@
 
 <!-- App Shell -->
 <AppShell>
-	<div>
 		<AppBar>
 			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<img src="/static/menu.svg"/>
-			</svelte:fragment>
 		</AppBar>
-	</div>
-		
-	
 	<!-- (header) -->
 	<svelte:fragment slot="sidebarLeft">
 		<div class="hidden lg:flex flex-col justify-center sm:hidden lg:block">

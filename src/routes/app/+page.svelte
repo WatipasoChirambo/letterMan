@@ -18,7 +18,7 @@
 		<dl class="list-dl">
 			<div>
 				<span class="">
-					<dt class="text-base font-bold">Recent Posts</dt>
+					<dt class="text-base font-bold">Communities</dt>
 					<hr class="!border-t-4" />
 					<dd class="text-sm">Description</dd>
 				</span>

@@ -41,7 +41,7 @@
 		return () => subscription.unsubscribe();
 	});
 
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-black' : '');
 </script>
 
 <!-- App Shell -->

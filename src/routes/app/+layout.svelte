@@ -41,13 +41,12 @@
 		return () => subscription.unsubscribe();
 	});
 
-	$: classesActive = (href: string) =>
-		href === $page.url.pathname ? 'variant-filled-tertiary flex justify-center' : '';
+	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');
 </script>
 
 <!-- App Shell -->
 <AppShell>
-	<div class="lg:hidden">
+	<div>
 		<AppBar>
 			<svelte:fragment slot="lead">(icon)</svelte:fragment>
 			<svelte:fragment slot="trail">

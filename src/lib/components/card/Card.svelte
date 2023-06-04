@@ -43,7 +43,7 @@
 		<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50" alt="Post" />
 	</div>
 </div>
-<div>
+<div class="flex gap-1">
 	{#each categories as category}
 		<button class="btn btn-sm variant-soft">{category.category}</button>
 	{/each}

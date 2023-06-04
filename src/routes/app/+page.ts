@@ -6,10 +6,18 @@ export const load: PageLoad = async ({ parent }) => {
   const { supabase, session } = await parent()
   
   if (!session) {
-    throw redirect(303, '/')
+    throw redirect(303, '/signin')
   }
-  const { data: posts } = await supabase.from('Blogs').select('*')
+  const { data: posts } = await supabase
+  .from('Blogs')
+  .select(`*,
+  category(
+    category
+  )
+  )`)
+  .order('created_at', { ascending: false })
 
+console.log(posts)
   return {
     user: session.user,
     posts

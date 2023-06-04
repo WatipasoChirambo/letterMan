@@ -1,16 +1,17 @@
 <script>
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import Icon from '@iconify/svelte';
+
+
 	export let title = '';
 	export let author = '';
 	export let description = '';
 	export let id = '';
-	export let tags = [];
-	export let image = ''
+	export let image = '';
+	export let categories = [];
 </script>
 
-<div
-	class="p-2 lg:p-8 flex items-center border-none justify-center"
->
+<div class="lg:flex items-center border-none justify-center">
 	<div class="lg:flex flex-col flex-[80%] justify-end">
 		<div class="p-2 grid gap-2">
 			<div class="flex items-center gap-2">
@@ -37,25 +38,14 @@
 				</p>
 			</a>
 		</div>
-		<div class="p-2 flex justify-between">
-			<button class="btn btn-sm variant-soft">
-				Tools
-			</button>
-			<div>
-				<button
-				class="chip btn btn-sm variant-filled"
-				on:click={() => {
-					console.log(30);
-				}}
-			>
-				Share
-			</button>
-			</div>
-		</div>
 	</div>
 	<div class="hidden lg:block md:block w-[250px]">
 		<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50" alt="Post" />
 	</div>
 </div>
+<div>
+	{#each categories as category}
+		<button class="btn btn-sm variant-soft">{category.category}</button>
+	{/each}
+</div>
 <hr class="!border-t-2" />
-

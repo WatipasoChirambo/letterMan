@@ -9,7 +9,7 @@
 <div class="p-1 lg:p-4 flex gap-16 lg:h-screen">
 	<div class="overflow-auto flex-[90%] flex gap-4 flex-col p-4">
 		{#each posts as post}
-			<Card title={post.Title} description={post.Description} id={post.id}/>
+			<Card title={post.Title} description={post.Description} id={post.id} categories={post.category}/>
 		{/each}
 	</div>
 	<div

@@ -1,7 +1,7 @@
 <script>
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Icon from '@iconify/svelte';
-
+	import { formatedDate } from '../../../utils/formatedDate';
 
 	export let title = '';
 	export let author = '';
@@ -9,6 +9,10 @@
 	export let id = '';
 	export let image = '';
 	export let categories = [];
+	export let createdAt = '';
+
+	const { month, day } = formatedDate(createdAt)
+	
 </script>
 
 <div class="lg:flex items-center border-none justify-center">
@@ -17,11 +21,11 @@
 			<div class="flex items-center gap-2">
 				<Avatar
 					src="https://source.unsplash.com/YOErFW8AfkI/128x128"
-					width="w-12"
+					width="w-8"
 					rounded="rounded-full"
 				/>
 				<span class="text-sm font-semibold">{author}</span><span class="text-sm font-light"
-					>May 4, 2023</span
+					>{month +" "+ day}</span
 				>
 			</div>
 			<a class="grid gap-2 cursor-pointer" href={id}>

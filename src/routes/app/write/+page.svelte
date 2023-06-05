@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { supabase } from '../../../supabase/supabase';
     import type { PageData } from './$types'
+	import Editor from '$lib/components/card/Editor.svelte';
   
     export let data: PageData
     $: ({ user } = data)
@@ -42,7 +43,9 @@
 </script>
 
 <form class="p-4 h-screen flex flex-col" on:submit|preventDefault={submitForm}>
-	<div class="flex-[10%] flex gap-4 justify-between items-center mt-2 mb-4">
+	<Editor/>
+</form>
+<!-- <div class="flex-[10%] flex gap-4 justify-between items-center mt-2 mb-4">
 		<input
 			class="input w-full pl-4"
 			title="Title"
@@ -63,5 +66,4 @@
 			title="description"
 			bind:value={description}
 		/>
-	</div>
-</form>
+	</div> -->

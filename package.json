@@ -39,9 +39,11 @@
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.9.4",
 		"@supabase/supabase-js": "^2.22.0",
+		"@tinymce/tinymce-svelte": "^1.0.1",
 		"feather-icons": "^4.29.0",
 		"svelte-feather-icons": "^4.0.0",
 		"svelte-material-icons": "^3.0.4",
+		"tinymce": "^6.4.2",
 		"vee-validate": "^4.9.5"
 	}
 }

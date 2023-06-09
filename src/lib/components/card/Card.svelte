@@ -15,7 +15,7 @@
 	
 </script>
 
-<div class="lg:flex items-center border-none justify-center">
+<div class="lg:flex items-center border-none justify-center m-2">
 	<div class="lg:flex flex-col flex-[80%] justify-end">
 		<div class="p-2 grid gap-2">
 			<div class="flex items-center gap-2">

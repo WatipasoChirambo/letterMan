@@ -21,6 +21,9 @@
 					`*,
 					comments(
 						comment
+					),
+					category(
+						category
 					)
 					)`
 				)
@@ -45,7 +48,7 @@
 
 {#if queryResult}
 	<div class="h-screen p-4 container">
-		<div class="mt-8">
+		<div class="m-auto">
 			<h1 class="text-2xl font-bold">{queryResult.Title}</h1>
 			<div class="flex items-center gap-2 my-2">
 				<Avatar src="/laying_woman.jpg" width="w-8" rounded="rounded-full" />
@@ -63,6 +66,16 @@
 					<Icon icon="bi:chat" />
 					<p class="text-xs font-thin">{number_of_comments}</p>
 				</button>
+				<div class="flex gap-2 items-center">
+					<h5 class="text-sm text-tertiary-900">Tags</h5>
+					<div class="flex flex-wrap gap-1">
+						{#each queryResult.category as category}
+							<button class="text-xs font-thin btn variant-filled-surface"
+								>{category.category}</button
+							>
+						{/each}
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="my-4">
@@ -123,7 +136,7 @@
 		</div>
 	</div>
 {:else}
-	<div class="flex justify-center items-center">
-		<p>Loading...</p>
+	<div class="flex h-screen justify-center items-center">
+		<Icon icon="svg-spinners:3-dots-move" color="#90BC2D" width="50" />
 	</div>
 {/if}

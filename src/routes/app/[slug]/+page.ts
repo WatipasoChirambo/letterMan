@@ -2,6 +2,8 @@ import { page } from '$app/stores';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({parent}) => {
+
+    console.log(parent)
     
     return {
         props: {

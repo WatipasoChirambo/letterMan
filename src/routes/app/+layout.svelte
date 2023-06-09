@@ -10,6 +10,7 @@
 
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import Icon from '@iconify/svelte';
 
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -18,6 +19,7 @@
 	import { MyRoutes } from '../../utils/routes';
 
 	export let data: LayoutData;
+	let searchIconColor;
 
 	$: ({ supabase, session } = data);
 
@@ -41,13 +43,38 @@
 		return () => subscription.unsubscribe();
 	});
 
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-black' : '');
+	$: classesActive = (href: string) =>
+		href === $page.url.pathname ? '!bg-primary-500 text-black' : '';
 </script>
 
 <!-- App Shell -->
 <AppShell>
+	{#if '/app' === $page.url.pathname}
+		<AppBar>
+			<svelte:fragment slot="lead">
+				<p class="text-4xl text-primary-700">W</p>
+			</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<div class="flex gap-1 items-center relative">
+					<div class="absolute z-10 px-3">
+						<Icon icon="bi:search" color={searchIconColor}/>
+					</div>
+
+					<input
+						class="input p-8 py-1 text-sm"
+						title="Input (text)"
+						type="text"
+						placeholder="Search"
+						on:focus={()=>{searchIconColor="#A0D132"}}
+						on:focusout={()=>{searchIconColor="white"}}
+					/>
+				</div>
+			</svelte:fragment>
+		</AppBar>
+	{/if}
+
 	<svelte:fragment slot="sidebarLeft">
-		<div class="hidden lg:flex flex-col justify-center sm:hidden lg:block">
+		<div class="hidden lg:flex h-screen flex-col justify-center sm:hidden lg:block">
 			<nav class="list-nav p-8 flex flex-col items-center">
 				<!-- (optionally you can provide a label here) -->
 				<div class="flex justify-center p-6 flex-col items-center">
@@ -56,7 +83,7 @@
 						width="w-20"
 						rounded="rounded-full"
 					/>
-					<a href="/profile"  class="p-0 m-1">Rokka Man Roar</a>
+					<a href="/profile" class="p-0 m-1">Rokka Man Roar</a>
 				</div>
 				<ul>
 					{#each MyRoutes as route}
@@ -75,9 +102,10 @@
 			</div>
 		</div>
 	</svelte:fragment>
-	<!-- (pageHeader) -->
-	<!-- Router Slot -->
-	<slot />
+	<div>
+		<!-- Router Slot -->
+		<slot />
+	</div>
 	<!-- ---- / ---- -->
 	<!-- (pageFooter) -->
 	<!-- (footer) -->

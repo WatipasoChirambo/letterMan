@@ -11,7 +11,7 @@
 
 <main>
 	<Editor
-		apiKey="${PUBLIC_TINYMCE}"
+		apiKey=${PUBLIC_TINYMCE}
         plugins="image"
 		toolbar="undo redo | bold italic underline | formatselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat"
 		onEditorChange={handleEditorChange}

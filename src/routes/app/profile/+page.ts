@@ -1,7 +1,7 @@
 // src/routes/profile/+page.ts
 import type { PageLoad } from './$types'
 import { redirect } from '@sveltejs/kit'
-import { supabase } from '../../supabase/supabase'
+import { supabase } from '../../../supabase/supabase'
 
 export const load: PageLoad = async ({ parent }) => {
   const { supabase, session } = await parent()

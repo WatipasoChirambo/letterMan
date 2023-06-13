@@ -52,7 +52,7 @@
 	{#if '/app' === $page.url.pathname}
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<p class="text-4xl text-primary-700">W</p>
+				<p class="text-2xl text-primary-700">W</p>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div class="flex gap-1 items-center relative">
@@ -83,7 +83,7 @@
 						width="w-20"
 						rounded="rounded-full"
 					/>
-					<a href="/profile" class="p-0 m-1">Rokka Man Roar</a>
+					<a href="/app/profile" class="p-0 m-1">Rokka Man Roar</a>
 				</div>
 				<ul>
 					{#each MyRoutes as route}
@@ -96,10 +96,11 @@
 					{/each}
 					<!-- ... -->
 				</ul>
-			</nav>
-			<div class="p-8 m-auto">
+				<div class="p-8 m-auto">
 				<button class="btn variant-filled-surface w-full" on:click={logOut}> Log Out </button>
 			</div>
+			</nav>
+			
 		</div>
 	</svelte:fragment>
 	<div>

@@ -54,7 +54,7 @@
 				<Avatar src="/laying_woman.jpg" width="w-8" rounded="rounded-full" />
 				<div class="flex gap-2">
 					<p class="font-thin">Roladex</p>
-					<button class="text-primary-600"> Follow </button>
+					<button class="text-primary-600 text-sm"> Follow </button>
 				</div>
 			</div>
 			<div class="flex gap-2">
@@ -63,14 +63,14 @@
 					<p class="text-xs font-thin">{number_of_comments}</p>
 				</button>
 				<button class="flex gap-2 items-center p-2">
-					<Icon icon="bi:chat" />
+					<Icon icon="icon-park-outline:like" />
 					<p class="text-xs font-thin">{number_of_comments}</p>
 				</button>
 				<div class="flex gap-2 items-center">
-					<h5 class="text-sm text-tertiary-900">Tags</h5>
+					<h5 class="text-sm text-tertiary-700">Tags</h5>
 					<div class="flex flex-wrap gap-1">
 						{#each queryResult.category as category}
-							<button class="text-xs font-thin btn variant-filled-surface"
+							<button class="text-xs font-thin btn bg-tertiary-700"
 								>{category.category}</button
 							>
 						{/each}
@@ -79,7 +79,7 @@
 			</div>
 		</div>
 		<div class="my-4">
-			<div class="h-[300px] w-[100%] flex items-center justify-center">
+			<div class="h-[300px] w-[100%] flex items-center justify-center p-4">
 				<img
 					src="/laying_woman.jpg"
 					alt="Laying Woman"

@@ -3,6 +3,9 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	import { getNotificationsContext } from 'svelte-notifications';
+
+	const { addNotification } = getNotificationsContext();
 
 	$: ({ supabase, session } = data);
 
@@ -20,20 +23,31 @@
 			});
 
 			if (error) throw error;
-			if(data){
-                location.reload();
-            }
+			if (data) {
+				addNotification({
+					text: 'Login Succesfully',
+					position: 'top-center',
+					type: 'success',
+					removeAfter: 3000,
+				});
+				location.reload();
+			}
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.message);
+				addNotification({
+					text: error.message,
+					position: 'top-center',
+					type: 'error',
+					removeAfter: 3000,
+				});
 			}
 		} finally {
 			loading = false;
 		}
 	};
-    if(session?.user){
-        location.reload();
-    }
+	if (session?.user) {
+		location.reload();
+	}
 </script>
 
 <div class="flex justify-center items-center h-full">

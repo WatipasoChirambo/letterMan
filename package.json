@@ -44,6 +44,7 @@
 		"feather-icons": "^4.29.0",
 		"svelte-feather-icons": "^4.0.0",
 		"svelte-material-icons": "^3.0.4",
+		"svelte-notifications": "^0.9.98",
 		"tinymce": "^6.4.2",
 		"vee-validate": "^4.9.5"
 	}

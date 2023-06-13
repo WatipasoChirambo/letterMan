@@ -3,7 +3,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	$: ({ user, posts } = data);
+	$: ({ user, posts, username } = data);
 </script>
 
 <div class="p-1 lg:flex gap-16 lg:h-screen">

@@ -21,8 +21,7 @@
 	export let data: LayoutData;
 	let searchIconColor;
 
-	$: ({ supabase, session } = data);
-
+	$: ({ supabase, session, username } = data);
 	const logOut = async () => {
 		const { error } = await supabase.auth.signOut();
 		if (error) {
@@ -30,6 +29,8 @@
 		}
 		location.reload();
 	};
+
+	
 
 	onMount(() => {
 		const {
@@ -39,12 +40,11 @@
 				invalidate('supabase:auth');
 			}
 		});
-
 		return () => subscription.unsubscribe();
 	});
 
 	$: classesActive = (href: string) =>
-		href === $page.url.pathname ? '!bg-primary-500 text-black' : '';
+		href === $page.url.pathname ? '!bg-primary-500 text-black text-sm' : 'text-sm';
 </script>
 
 <!-- App Shell -->
@@ -83,7 +83,12 @@
 						width="w-20"
 						rounded="rounded-full"
 					/>
-					<a href="/app/profile" class="p-0 m-1">Rokka Man Roar</a>
+					{#if username}
+						<a href="/app/profile" class="p-0 m-1 text-xs">{username}</a>
+					{/if}
+					{#if !username}
+						<a href="/app/profile" class="p-0 m-1 text-xs">____</a>
+					{/if}
 				</div>
 				<ul>
 					{#each MyRoutes as route}
@@ -97,7 +102,7 @@
 					<!-- ... -->
 				</ul>
 				<div class="p-8 m-auto">
-				<button class="btn variant-filled-surface w-full" on:click={logOut}> Log Out </button>
+				<button class="btn variant-filled-surface w-full text-sm" on:click={logOut}> Log Out </button>
 			</div>
 			</nav>
 			

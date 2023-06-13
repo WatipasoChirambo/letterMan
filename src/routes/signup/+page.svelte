@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { SubmitFunction } from '$app/forms';
 	import type { PageData } from './$types';
+	import { getNotificationsContext } from 'svelte-notifications';
+
+	const { addNotification } = getNotificationsContext();
 
 	export let data: PageData;
 
@@ -19,11 +22,22 @@
 			});
 			if (error) throw error;
 			if (data) {
+				addNotification({
+					text: 'Account Created Succesfully',
+					position: 'top-center',
+					type: 'success',
+					removeAfter: 3000,
+				});
 				location.reload();
 			}
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.message);
+				addNotification({
+					text: error.message,
+					position: 'top-center',
+					type: 'error',
+					removeAfter: 3000,
+				});
 			}
 		} finally {
 			loading = false;

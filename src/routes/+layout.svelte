@@ -7,11 +7,13 @@
 
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell } from '@skeletonlabs/skeleton';
 
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
+
+	import Notifications from 'svelte-notifications';
 
 	export let data: LayoutData;
 
@@ -33,5 +35,8 @@
 <!-- App Shell -->
 <AppShell>
 	<!-- Page Route Content -->
+	<Notifications>
 		<slot />
+	</Notifications>
+		
 </AppShell>

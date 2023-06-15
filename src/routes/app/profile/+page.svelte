@@ -2,6 +2,9 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import type { PageData } from './$types';
+	import { Modal, modalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
+	import CompleteRegistration from '$lib/components/modals/CompleteRegistration.svelte';
 
 	export let data: PageData;
 	$: ({ user, username } = data);
@@ -14,6 +17,7 @@
 			width="w-50"
 			rounded="rounded-full"
 		/>
+		
 		<div>
 			<div class="flex items-center">
 				<p class="btn btn-sm text-primary-600">First Name:</p>
@@ -46,15 +50,13 @@
 				<p class="btn btn-sm text-primary-600">Email:</p>
 				<p>{user.email}</p>
 			</div>
-      <div class="p-2 flex justify-center">
-        <button class="btn text-sm bg-primary-600">Edit</button>
-      </div>
+			<div class="p-2 flex justify-center">
+				<button class="btn text-sm bg-primary-600">Edit</button>
+			</div>
 		</div>
 	</div>
 	<div class="flex flex-col items-center mt-8 card p-4 w-[300px]">
 		<p class="underline text-xl">Skills</p>
-		<div>
-
-		</div>
+		<div />
 	</div>
 </div>

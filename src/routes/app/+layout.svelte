@@ -17,6 +17,7 @@
 	import type { LayoutData } from './$types';
 	import { page } from '$app/stores';
 	import { MyRoutes } from '../../utils/routes';
+	import PageTransition from '../transition.svelte';
 
 	export let data: LayoutData;
 	let searchIconColor;
@@ -29,8 +30,6 @@
 		}
 		location.reload();
 	};
-
-	
 
 	onMount(() => {
 		const {
@@ -50,31 +49,13 @@
 <!-- App Shell -->
 <AppShell>
 	{#if '/app' === $page.url.pathname}
-		<AppBar>
-			<svelte:fragment slot="lead">
-				<p class="text-2xl text-primary-700">W</p>
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<div class="flex gap-1 items-center relative">
-					<div class="absolute z-10 px-3">
-						<Icon icon="bi:search" color={searchIconColor}/>
-					</div>
-
-					<input
-						class="input p-8 py-1 text-sm"
-						title="Input (text)"
-						type="text"
-						placeholder="Search"
-						on:focus={()=>{searchIconColor="#A0D132"}}
-						on:focusout={()=>{searchIconColor="white"}}
-					/>
-				</div>
-			</svelte:fragment>
+		<AppBar class="absolute z-[237354] p-0 right-0 w-[50px]">
+			<Icon icon="bi:search" color={searchIconColor} />
 		</AppBar>
 	{/if}
 
 	<svelte:fragment slot="sidebarLeft">
-		<div class="hidden lg:flex h-screen flex-col justify-center sm:hidden lg:block">
+		<div class="hidden lg:flex flex-col justify-center sm:hidden lg:block">
 			<nav class="list-nav p-8 flex flex-col items-center">
 				<!-- (optionally you can provide a label here) -->
 				<div class="flex justify-center p-6 flex-col items-center">
@@ -102,15 +83,18 @@
 					<!-- ... -->
 				</ul>
 				<div class="p-8 m-auto">
-				<button class="btn variant-filled-surface w-full text-sm" on:click={logOut}> Log Out </button>
-			</div>
+					<button class="btn variant-filled-surface w-full text-sm" on:click={logOut}>
+						Log Out
+					</button>
+				</div>
 			</nav>
-			
 		</div>
 	</svelte:fragment>
 	<div>
 		<!-- Router Slot -->
-		<slot />
+		<PageTransition url={$page.url.pathname}>
+			<slot />
+		</PageTransition>
 	</div>
 	<!-- ---- / ---- -->
 	<!-- (pageFooter) -->

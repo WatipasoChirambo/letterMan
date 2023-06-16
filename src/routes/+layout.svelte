@@ -7,11 +7,14 @@
 
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
+	import { Modal, modalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
 	import { AppShell } from '@skeletonlabs/skeleton';
 
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
+	import { page } from '$app/stores';
 
 	import Notifications from 'svelte-notifications';
 
@@ -33,10 +36,12 @@
 </script>
 
 <!-- App Shell -->
+<Modal />
+
+<!-- <AppShell>...</AppShell> -->
 <AppShell>
 	<!-- Page Route Content -->
 	<Notifications>
 		<slot />
 	</Notifications>
-		
 </AppShell>

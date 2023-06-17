@@ -10,7 +10,7 @@
 	const modal: ModalSettings = {
 		type: 'prompt',
 		// Data
-		title: 'Enter Display Name.',
+		body: 'Enter Display Name.',
 		// Populates the input value and attributes
 		value: inputUsername,
 		valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },

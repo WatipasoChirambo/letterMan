@@ -55,7 +55,7 @@
 	{/if}
 
 	<svelte:fragment slot="sidebarLeft">
-		<div class="hidden lg:flex flex-col justify-center sm:hidden lg:block">
+		<div class="hidden h-screen lg:flex flex-col justify-center sm:hidden lg:block">
 			<nav class="list-nav p-8 flex flex-col items-center">
 				<!-- (optionally you can provide a label here) -->
 				<div class="flex justify-center p-6 flex-col items-center">

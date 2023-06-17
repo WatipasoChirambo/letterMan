@@ -1,9 +1,9 @@
+import { EditProfileSchema } from '$lib/schema/editprofile';
 import { superValidate } from 'sveltekit-superforms/server';
 
 export const load = async () => {
   // Server API:
-  const form = await superValidate(EditPro);
+  const form = await superValidate(EditProfileSchema);
 
-  // Always return { form } in load and form actions.
   return { form };
 };
